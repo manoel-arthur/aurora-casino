@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d27">
+  <meta name="description" content="Aurora Casino: projeto de portfólio com roleta europeia, slots e fichas totalmente fictícias.">
+  <title>Aurora Casino — Demo de portfólio</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./src/styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#play-area">Ir para o jogo</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="./" aria-label="Aurora Casino, início"><span class="brand-mark" aria-hidden="true">✦</span><span>AURORA<small>CASINO</small></span></a>
+      <div class="side-section"><p class="eyebrow">SALA DE JOGOS</p><nav aria-label="Jogos"><button type="button" class="nav-item active" data-game="roulette" aria-current="page"><span aria-hidden="true">◉</span>Roleta europeia<span class="nav-count">01</span></button><button type="button" class="nav-item" data-game="slots"><span aria-hidden="true">▥</span>Aurora Slots<span class="nav-count">02</span></button></nav></div>
+      <div class="side-bottom"><button type="button" class="text-button" id="about-button"><span aria-hidden="true">ⓘ</span> Sobre o projeto</button><div class="demo-label"><span aria-hidden="true">◇</span><div><strong>Uma experiência fictícia</strong><p>Feito para jogar, aprender<br>e compor um portfólio.</p></div></div><p class="side-signature">EST. 2026 <span>✦</span> EDIÇÃO DEMO</p></div>
+    </aside>
+    <div class="main-shell">
+      <header class="topbar"><span class="topbar-label">O seu pequeno intervalo.</span><span class="demo-badge">MODO DEMONSTRAÇÃO</span><div class="wallet"><span class="coin" aria-hidden="true">A</span><div><small>SUAS FICHAS</small><strong id="balance">1.000</strong></div><button type="button" id="reset-button" aria-label="Reiniciar saldo e histórico" title="Reiniciar demonstração">↻</button></div></header>
+      <main id="play-area" tabindex="-1">
+        <div class="page-heading"><div><p class="eyebrow gold">OS CLÁSSICOS, DO SEU JEITO</p><h1 id="game-title">Roleta europeia<span>.</span></h1><p id="game-description">Uma roda. 37 possibilidades. Escolha a sua cor.</p></div><button type="button" class="rules-button" id="rules-button">Como jogar <span aria-hidden="true">?</span></button></div>
+        <section class="game-layout" aria-label="Mesa de jogo">
+          <div class="table-surface">
+            <div class="table-top"><span class="table-tag" id="table-tag">EUROPEAN ROULETTE</span><span class="table-edition">AURORA ORIGINALS</span></div>
+            <div id="roulette-scene" class="roulette-scene"><div class="wheel-pointer" aria-hidden="true"></div><canvas id="wheel" width="1000" height="1000" role="img" aria-label="Roleta europeia com 37 números, de 0 a 36"></canvas><div class="wheel-hub" aria-hidden="true"><span>✦</span><small>AURORA</small></div></div>
+            <div id="slots-scene" class="slots-scene" hidden><div class="slots-heading"><span>THE</span><strong>AURORA</strong><span>SLOTS CLUB</span></div><div class="reels" aria-label="Símbolos dos slots"><div class="reel" id="reel-0">★</div><div class="reel" id="reel-1">★</div><div class="reel" id="reel-2">★</div></div><p>TRÊS IGUAIS. UMA COMBINAÇÃO.</p></div>
+            <div class="table-bottom"><div><span class="live-dot" aria-hidden="true"></span><span id="table-status">A mesa está pronta</span></div><span id="table-footnote">0–36 · ZERO ÚNICO</span></div>
+          </div>
+          <div class="bet-panel">
+            <div class="panel-heading"><p class="eyebrow">SUA RODADA</p><span aria-hidden="true">✦</span></div>
+            <form id="bet-form">
+              <fieldset id="color-fieldset"><legend>1. Escolha uma cor</legend><div class="color-options"><button type="button" class="color-option red selected" data-color="red" aria-pressed="true"><span aria-hidden="true"></span>Vermelho<small>2×</small></button><button type="button" class="color-option black" data-color="black" aria-pressed="false"><span aria-hidden="true"></span>Preto<small>2×</small></button><button type="button" class="color-option green" data-color="green" aria-pressed="false"><span aria-hidden="true"></span>Zero<small>36×</small></button></div></fieldset>
+              <div id="slots-payouts" class="slots-payouts" hidden><p>Combinações premiadas</p><div><span>★ ★ ★</span><strong>20×</strong></div><div><span>◆ ◆ ◆</span><strong>12×</strong></div><div><span>♠ ♠ ♠</span><strong>8×</strong></div><div><span>● ● ●</span><strong>5×</strong></div></div>
+              <label class="field-label" for="bet-amount" id="amount-label">2. Defina suas fichas</label><div class="amount-control"><button type="button" id="decrease" aria-label="Diminuir 10 fichas">−</button><input id="bet-amount" name="amount" type="number" min="10" max="500" step="1" value="50" inputmode="numeric" required aria-describedby="bet-help"><button type="button" id="increase" aria-label="Aumentar 10 fichas">+</button></div><div class="quick-bets"><button type="button" data-amount="25">25</button><button type="button" data-amount="50">50</button><button type="button" data-amount="100">100</button><button type="button" data-amount="250">250</button></div><p class="help" id="bet-help">De 10 a 500 fichas por rodada.</p>
+              <div class="return-line"><span>Retorno possível</span><strong id="possible-return">100 <small>fichas</small></strong></div><button type="submit" class="play-button" id="play-button"><span aria-hidden="true">◉</span> Girar a roleta</button><p class="panel-note">O retorno inclui as fichas apostadas.</p>
+            </form>
+            <div id="result" class="result" role="status" aria-live="polite" aria-atomic="true"><span aria-hidden="true">◇</span><div><strong>Boa diversão.</strong><p>Suas fichas são apenas virtuais.</p></div></div>
+          </div>
+        </section>
+        <section class="history-section" aria-labelledby="history-title"><div class="history-heading"><h2 id="history-title">Últimas rodadas</h2><span id="round-count">0 rodadas nesta sessão</span></div><div id="history-list" class="history-list"><div class="empty-history"><span aria-hidden="true">◷</span><p>Sua história começa no primeiro giro.</p></div></div></section>
+        <section class="providers-section" aria-labelledby="providers-title"><div class="history-heading"><h2 id="providers-title">Explore outros estúdios</h2><span>Sites oficiais</span></div><div class="provider-grid"><article class="provider-card"><div><span class="provider-monogram" aria-hidden="true">PG</span><h3>PG Soft</h3></div><p>Conheça as demonstrações disponíveis no site do estúdio.</p><a href="https://www.pgsoft.com/demo" target="_blank" rel="noopener noreferrer">Visitar site oficial<span class="sr-only"> (abre em nova aba)</span></a><small>Integração no Aurora: pendente</small></article><article class="provider-card"><div><span class="provider-monogram" aria-hidden="true">PP</span><h3>Pragmatic Play</h3></div><p>Explore o catálogo demonstrativo no site do fornecedor.</p><a href="https://www.pragmaticplay.com/en/games/?type=demo" target="_blank" rel="noopener noreferrer">Visitar site oficial<span class="sr-only"> (abre em nova aba)</span></a><small>Integração no Aurora: pendente</small></article></div><p class="provider-note">Você sairá do Aurora. As fichas desta demo não são usadas nos sites externos. Não há afiliação com os fornecedores.</p></section>
+        <footer class="footer"><span><b>✦ AURORA</b> · Projeto de portfólio</span><span>100% fictício. Sem depósitos, saques ou dinheiro real.</span></footer>
+        <p id="storage-warning" class="storage-warning" role="status" hidden>Os dados locais estão inválidos ou o armazenamento está indisponível. Uma sessão limpa foi iniciada; se o navegador bloquear a gravação, o progresso será perdido ao recarregar.</p>
+      </main>
+    </div>
+  </div>
+  <dialog id="rules-dialog" aria-labelledby="rules-title"><div class="dialog-content"><p class="eyebrow gold">GUIA DA MESA</p><h2 id="rules-title">Como jogar</h2><div id="rules-content"></div><form method="dialog"><button class="play-button" type="submit">Entendi</button></form></div></dialog>
+  <dialog id="reset-dialog" aria-labelledby="reset-title"><div class="dialog-content"><p class="eyebrow gold">UM NOVO COMEÇO</p><h2 id="reset-title">Reiniciar a demo?</h2><p>O saldo volta a 1.000 fichas e o histórico deste navegador será apagado.</p><div class="dialog-actions"><form method="dialog"><button type="submit" class="secondary-button">Continuar jogando</button></form><button type="button" class="play-button" id="confirm-reset">Reiniciar demo</button></div></div></dialog>
+  <dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-content"><p class="eyebrow gold">POR TRÁS DA EXPERIÊNCIA</p><h2 id="about-title">Um projeto para aprender.</h2><p>Aurora Casino é uma demonstração interativa de front-end, criada para o portfólio de Artur.</p><p>Interface responsiva, regras isoladas em módulos, sorteios com Web Crypto e histórico salvo apenas neste navegador. Nenhuma ficha tem valor monetário.</p><p>Os resultados são aleatórios: uma rodada anterior não muda a chance da próxima. O código e o saldo local podem ser alterados pelo visitante; esta demo não deve ser usada para apostas reais.</p><form method="dialog"><button type="submit" class="play-button">Voltar à mesa</button></form></div></dialog>
+  <noscript>Ative o JavaScript para jogar esta demonstração.</noscript>
+</body>
+</html>
